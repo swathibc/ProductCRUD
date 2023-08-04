@@ -1,0 +1,37 @@
+DROP SCHEMA IF EXISTS `products`;
+
+CREATE SCHEMA `products`;
+
+use `products`;
+
+
+DROP TABLE IF EXISTS `product`;
+
+
+CREATE TABLE `product` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `product_name` varchar(100) NOT NULL,
+  `price` DECIMAL(10,2) DEFAULT 0,
+  `status` varchar(30) NOT NULL,
+  `posted_date` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_date` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `requested_date` TIMESTAMP DEFAULT NULL,
+  `created_by` varchar(30) NOT NULL,
+  `updated_by` varchar(30) NOT NULL,
+  PRIMARY KEY (`id`)
+);
+
+DROP TABLE IF EXISTS `approval_queue`;
+
+CREATE TABLE `approval_queue` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `product_name` varchar(100) NOT NULL,
+  `price` DECIMAL(10,2) DEFAULT 0,
+  `status` varchar(30) NOT NULL,
+  `posted_date` TIMESTAMP DEFAULT NULL,
+  `requested_date` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_date` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `created_by` varchar(30) NOT NULL,
+  `updated_by` varchar(30) NOT NULL,
+  PRIMARY KEY (`id`)
+);
